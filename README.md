@@ -6,7 +6,7 @@ This app is an extension of Google's Calendar API quickstart.py script that can 
 
 Since I enjoy the Write.as text editor so much, I wanted to be able to quickly jot down an event from Write.as and add it to my Google calendar. This script is an attempt of such a feature.
 
-<strong>Using the script</a>
+<strong>Using the script</strong>
 
 1) Before anything, register your app with Google. This is how you'll be able to get the 'client_secret.json' file needed to authorize your app and access your calendar.
 
