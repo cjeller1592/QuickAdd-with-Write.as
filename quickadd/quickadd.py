@@ -1,5 +1,6 @@
 import requests
 import json
+
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
@@ -8,7 +9,7 @@ from oauth2client import file, client, tools
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar.events'
 
-def main():
+def quickadd():
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
@@ -19,7 +20,7 @@ def main():
     creds = store.get()
 
     # Make sure to register your app in the Google developer's console
-    # By doing so you will retrieve your 'credentials.json' file needed to 
+    # By doing so you will retrieve your 'credentials.json' file needed to authorize your request
     if not creds or creds.invalid:
         flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
         creds = tools.run_flow(flow, store)
@@ -29,6 +30,8 @@ def main():
     # When you run the script in the cmd line, it will ask you for the post id
     headers = {'Content-Type': 'application/json'}
     url = 'https://write.as/api/posts/' + raw_input("Give post id here: ")
+    
+    # Now with the necessary parts of the request we will call the Write.as API
     post = requests.get(url, headers=headers)
     
     # Once the request is complete, we'll grab the post body
